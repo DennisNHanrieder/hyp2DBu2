@@ -52,7 +52,7 @@ if (isset($_SESSION)) {
 }
 
 // Set a base path if your code is not in your server's document root.
-$router->setBasePath("/teil-2-ubung-8a-teameins/QuizQuest/public");
+$router->setBasePath("/teil-2-uebung-9-teameins/QuizQuest/public");
 
 // Set a 404 callback that is executed when no route matches.
 // Example for the use of an arrow function. It automatically includes variables from the parent scope (such as $twig).
@@ -139,6 +139,15 @@ $router->get("/Leaderboard", function () use ($twig) {
 $router->post("/Leaderboard", function () use ($twig) {
     // This should fill the leaderboard.
     require DIR . "/../src/Leaderboard.php";
+});
+
+$router->get("/quizshow", function () use ($twig) {
+    $quiz = getQuiz($_GET['id']);
+    $twig->display("quiz_open.html.twig", ['quiz' => $quiz]);
+});
+
+$router->post("/quizshow", function () use ($twig) {
+    require __DIR__ . "/../src/quiz_open.php";
 });
 
 // Run the router to get the party started.

@@ -10,7 +10,28 @@
     <option name="highlightLevel" value="WARNING" />
     <option name="transferred" value="true" />
   </component>
+  <component name="PhpIncludePathManager">
+    <include_path>
+      <path value="$PROJECT_DIR$/QuizQuest/vendor/twig/twig" />
+      <path value="$PROJECT_DIR$/QuizQuest/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/QuizQuest/vendor/fhooe/twig-extensions" />
+      <path value="$PROJECT_DIR$/QuizQuest/vendor/fhooe/router" />
+      <path value="$PROJECT_DIR$/QuizQuest/vendor/phpstan/phpstan" />
+      <path value="$PROJECT_DIR$/QuizQuest/vendor/monolog/monolog" />
+      <path value="$PROJECT_DIR$/QuizQuest/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/QuizQuest/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/QuizQuest/vendor/symfony/polyfill-php80" />
+      <path value="$PROJECT_DIR$/QuizQuest/vendor/composer" />
+    </include_path>
+  </component>
+  <component name="PhpProjectSharedConfiguration" php_language_level="8.3" />
+  <component name="PhpStan">
+    <PhpStan_settings>
+      <PhpStanConfiguration tool_path="$PROJECT_DIR$/QuizQuest/vendor/bin/phpstan" />
+    </PhpStan_settings>
+  </component>
   <component name="PhpStanOptionsConfiguration">
+    <option name="memoryLimit" value="-1" />
     <option name="transferred" value="true" />
   </component>
   <component name="PsalmOptionsConfiguration">

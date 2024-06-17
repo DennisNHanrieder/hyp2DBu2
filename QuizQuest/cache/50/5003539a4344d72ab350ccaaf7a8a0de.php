@@ -55,13 +55,15 @@ class __TwigTemplate_d2714b9a15184fc46be30151f66d1ebb extends Template
     {
         $macros = $this->macros;
         // line 6
-        echo "    <hgroup>
+        echo "
+    
+    <hgroup>
         <h1>QuizQuest</h1>
         <p class=\"lead\">Your favorite quiz game!</p>
     </hgroup>
 
     <form action=\"";
-        // line 11
+        // line 13
         echo twig_escape_filter($this->env, $this->env->getFunction('url_for')->getCallable()("/join_quiz"), "html", null, true);
         echo "\" method=\"POST\"  style=\"display: flex; flex-direction: column; align-items: center; justify-content: center;\">
         <div class=\"form-group text-center col-2\">
@@ -77,93 +79,93 @@ class __TwigTemplate_d2714b9a15184fc46be30151f66d1ebb extends Template
         <h2>Open Games</h2>
         <div class=\"row\">
             ";
-        // line 24
+        // line 26
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable(($context["quizzes"] ?? null));
         foreach ($context['_seq'] as $context["_key"] => $context["game"]) {
-            // line 25
+            // line 27
             echo "                <div class=\"col-md-4\">
                     <div class=\"card mb-4\">
                         <img class=\"card-img-top\" src=\"https://lehrerweb.wien/fileadmin/_processed_/0/e/csm_quiz-2192590_1920_7feb491723.jpg\" alt=\"Card image\">
                         <div class=\"card-body\">
                             <h5 class=\"card-title\">";
-            // line 29
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["game"], "Title", [], "any", false, false, false, 29), "html", null, true);
+            // line 31
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["game"], "Title", [], "any", false, false, false, 31), "html", null, true);
             echo "</h5>
                             <p class=\"card-text\">";
-            // line 30
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["game"], "Category", [], "any", false, false, false, 30), "html", null, true);
-            echo "</p>
-                            <p class=\"card-text\">";
-            // line 31
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["game"], "answeredQuestions", [], "any", false, false, false, 31), "html", null, true);
-            echo " /  ";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["game"], "totalQuestions", [], "any", false, false, false, 31), "html", null, true);
-            echo "</p>
-                            <p class=\"card-text\">";
             // line 32
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["game"], "Difficulty", [], "any", false, false, false, 32), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["game"], "Category", [], "any", false, false, false, 32), "html", null, true);
             echo "</p>
                             <p class=\"card-text\">";
             // line 33
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["game"], "StartedAt", [], "any", false, false, false, 33), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["game"], "answeredQuestions", [], "any", false, false, false, 33), "html", null, true);
+            echo " /  ";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["game"], "totalQuestions", [], "any", false, false, false, 33), "html", null, true);
+            echo "</p>
+                            <p class=\"card-text\">";
+            // line 34
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["game"], "Difficulty", [], "any", false, false, false, 34), "html", null, true);
+            echo "</p>
+                            <p class=\"card-text\">";
+            // line 35
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["game"], "StartedAt", [], "any", false, false, false, 35), "html", null, true);
             echo " ";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["game"], "ClosedAt", [], "any", false, false, false, 33), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["game"], "ClosedAt", [], "any", false, false, false, 35), "html", null, true);
             echo "</p>
                         </div>
                         <div class=\"card-footer\">
                             <div class=\"row\">
                                 <div class=\"col-3\">
                                     <form method=\"get\" action=\"";
-            // line 38
+            // line 40
             echo twig_escape_filter($this->env, $this->env->getFunction('url_for')->getCallable()("/quizshow"), "html", null, true);
             echo "\">
                                         <button type=\"submit\" class=\"btn btn-success\" name=\"id\" value=\"";
-            // line 39
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["game"], "ID", [], "any", false, false, false, 39), "html", null, true);
+            // line 41
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["game"], "ID", [], "any", false, false, false, 41), "html", null, true);
             echo "\">Open</button>
                                     </form>
                                 </div>
                                 ";
-            // line 42
-            if ((twig_get_attribute($this->env, $this->source, ($context["_session"] ?? null), "role", [], "any", false, false, false, 42) == "Creator")) {
-                // line 43
+            // line 44
+            if ((twig_get_attribute($this->env, $this->source, ($context["_session"] ?? null), "role", [], "any", false, false, false, 44) == "Creator")) {
+                // line 45
                 echo "                                    <div class=\"col-3\">
                                         <form method=\"get\" action=\"";
-                // line 44
+                // line 46
                 echo twig_escape_filter($this->env, $this->env->getFunction('url_for')->getCallable()("/quizmodify"), "html", null, true);
                 echo "\">
                                             <button type=\"submit\" class=\"btn btn-warning\" name=\"id\" value=\"";
-                // line 45
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["game"], "ID", [], "any", false, false, false, 45), "html", null, true);
+                // line 47
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["game"], "ID", [], "any", false, false, false, 47), "html", null, true);
                 echo "\">Modify</button>
                                         </form>
                                     </div>
                                     <div class=\"col-3\">
                                         <form method=\"get\" action=\"";
-                // line 49
+                // line 51
                 echo twig_escape_filter($this->env, $this->env->getFunction('url_for')->getCallable()("/quizquestions"), "html", null, true);
                 echo "\">
                                             <button type=\"submit\" class=\"btn btn-info\" name=\"id\" value=\"";
-                // line 50
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["game"], "ID", [], "any", false, false, false, 50), "html", null, true);
+                // line 52
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["game"], "ID", [], "any", false, false, false, 52), "html", null, true);
                 echo "\">Questions</button>
                                         </form>
                                     </div>
                                     <div class=\"col-3\">
                                         <form method=\"post\" action=\"";
-                // line 54
+                // line 56
                 echo twig_escape_filter($this->env, $this->env->getFunction('url_for')->getCallable()("/quizdelete"), "html", null, true);
                 echo "\">
                                             <button type=\"submit\" class=\"btn btn-danger\" name=\"id\" value=\"";
-                // line 55
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["game"], "ID", [], "any", false, false, false, 55), "html", null, true);
+                // line 57
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["game"], "ID", [], "any", false, false, false, 57), "html", null, true);
                 echo "\">Delete</button>
                                         </form>
                                     </div>
                                 ";
             }
-            // line 59
+            // line 61
             echo "
                             </div>
                         </div>
@@ -174,7 +176,7 @@ class __TwigTemplate_d2714b9a15184fc46be30151f66d1ebb extends Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['game'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 65
+        // line 67
         echo "        </div>
     </div>
 
@@ -202,7 +204,7 @@ class __TwigTemplate_d2714b9a15184fc46be30151f66d1ebb extends Template
      */
     public function getDebugInfo()
     {
-        return array (  178 => 65,  167 => 59,  160 => 55,  156 => 54,  149 => 50,  145 => 49,  138 => 45,  134 => 44,  131 => 43,  129 => 42,  123 => 39,  119 => 38,  109 => 33,  105 => 32,  99 => 31,  95 => 30,  91 => 29,  85 => 25,  81 => 24,  65 => 11,  58 => 6,  54 => 5,  47 => 3,  36 => 1,);
+        return array (  180 => 67,  169 => 61,  162 => 57,  158 => 56,  151 => 52,  147 => 51,  140 => 47,  136 => 46,  133 => 45,  131 => 44,  125 => 41,  121 => 40,  111 => 35,  107 => 34,  101 => 33,  97 => 32,  93 => 31,  87 => 27,  83 => 26,  67 => 13,  58 => 6,  54 => 5,  47 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -212,6 +214,8 @@ class __TwigTemplate_d2714b9a15184fc46be30151f66d1ebb extends Template
 {% block title %}QuizQuest{% endblock %}
 
 {% block main %}
+
+    
     <hgroup>
         <h1>QuizQuest</h1>
         <p class=\"lead\">Your favorite quiz game!</p>

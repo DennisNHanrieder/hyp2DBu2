@@ -23,14 +23,6 @@
 
             <ul class="nav nav-pills">
 
-                <li class="nav-item">
-                    <a href="{{ url_for("/quizoverview") }}" class="nav-link">Quizzes</a>
-                </li
-
-                ><li class="nav-item">
-                    <a href="{{ url_for("/Leaderboard") }}" class="nav-link">Leaderboard</a>
-                </li
-
                 {% if _session.isLoggedin is defined %}
 
                     {% if _session.role == "Creator" %}
@@ -42,6 +34,15 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url_for("/logout") }}">Logout</a>
                     </li>
+
+                    <li class="nav-item">
+                        <a href="{{ url_for("/quizoverview") }}" class="nav-link">Quizzes</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="{{ url_for("/Leaderboard") }}" class="nav-link">Leaderboard</a>
+                    </li
+
                 {% else %}
                     <li class="nav-item">
                         <a href="{{ url_for("/login") }}" class="nav-link">Login</a>

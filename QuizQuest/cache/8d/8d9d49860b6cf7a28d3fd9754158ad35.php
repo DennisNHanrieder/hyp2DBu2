@@ -53,29 +53,29 @@ class __TwigTemplate_b5cc8d5ea6f7234234146e30cb832f7e extends Template
         ";
         // line 18
         $this->displayBlock('header', $context, $blocks);
-        // line 61
+        // line 62
         echo "    </header>
 
     <main>
         ";
-        // line 64
+        // line 65
         $this->displayBlock('main', $context, $blocks);
-        // line 66
+        // line 67
         echo "    </main>
 
     <footer class=\"d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top\">
         ";
-        // line 69
+        // line 70
         $this->displayBlock('footer', $context, $blocks);
-        // line 74
+        // line 75
         echo "    </footer>
 </div>
 <script src=\"";
-        // line 76
+        // line 77
         echo twig_escape_filter($this->env, $this->env->getFunction('get_base_path')->getCallable()(), "html", null, true);
         echo "/../views/js/bootstrap.bundle.min.js\"></script>
 <script src=\"";
-        // line 77
+        // line 78
         echo twig_escape_filter($this->env, $this->env->getFunction('get_base_path')->getCallable()(), "html", null, true);
         echo "/../views/js/main.js\"></script>
 </body>
@@ -132,69 +132,70 @@ class __TwigTemplate_b5cc8d5ea6f7234234146e30cb832f7e extends Template
 
             <ul class=\"nav nav-pills\">
 
-                <li class=\"nav-item\">
-                    <a href=\"";
-        // line 27
-        echo twig_escape_filter($this->env, $this->env->getFunction('url_for')->getCallable()("/quizoverview"), "html", null, true);
-        echo "\" class=\"nav-link\">Quizzes</a>
-                </li
-
-                ><li class=\"nav-item\">
-                    <a href=\"";
-        // line 31
-        echo twig_escape_filter($this->env, $this->env->getFunction('url_for')->getCallable()("/Leaderboard"), "html", null, true);
-        echo "\" class=\"nav-link\">Leaderboard</a>
-                </li
-
                 ";
-        // line 34
-        if (twig_get_attribute($this->env, $this->source, ($context["_session"] ?? null), "isLoggedin", [], "any", true, true, false, 34)) {
-            // line 35
+        // line 26
+        if (twig_get_attribute($this->env, $this->source, ($context["_session"] ?? null), "isLoggedin", [], "any", true, true, false, 26)) {
+            // line 27
             echo "
                     ";
-            // line 36
-            if ((twig_get_attribute($this->env, $this->source, ($context["_session"] ?? null), "role", [], "any", false, false, false, 36) == "Creator")) {
-                // line 37
+            // line 28
+            if ((twig_get_attribute($this->env, $this->source, ($context["_session"] ?? null), "role", [], "any", false, false, false, 28) == "Creator")) {
+                // line 29
                 echo "                        <li class=\"nav-item\">
                             <a href=\"";
-                // line 38
+                // line 30
                 echo twig_escape_filter($this->env, $this->env->getFunction('url_for')->getCallable()("/quizcreate"), "html", null, true);
                 echo "\" class=\"nav-link\">New Quiz</a>
                         </li>
                     ";
             }
-            // line 41
+            // line 33
             echo "
                     <li class=\"nav-item\">
                         <a class=\"nav-link\" href=\"";
-            // line 43
+            // line 35
             echo twig_escape_filter($this->env, $this->env->getFunction('url_for')->getCallable()("/logout"), "html", null, true);
             echo "\">Logout</a>
                     </li>
+
+                    <li class=\"nav-item\">
+                        <a href=\"";
+            // line 39
+            echo twig_escape_filter($this->env, $this->env->getFunction('url_for')->getCallable()("/quizoverview"), "html", null, true);
+            echo "\" class=\"nav-link\">Quizzes</a>
+                    </li>
+
+                    <li class=\"nav-item\">
+                        <a href=\"";
+            // line 43
+            echo twig_escape_filter($this->env, $this->env->getFunction('url_for')->getCallable()("/Leaderboard"), "html", null, true);
+            echo "\" class=\"nav-link\">Leaderboard</a>
+                    </li
+
                 ";
         } else {
-            // line 46
+            // line 47
             echo "                    <li class=\"nav-item\">
                         <a href=\"";
-            // line 47
+            // line 48
             echo twig_escape_filter($this->env, $this->env->getFunction('url_for')->getCallable()("/login"), "html", null, true);
             echo "\" class=\"nav-link\">Login</a>
                     </li>
 
                     <li class=\"nav-item\">
                         <a href=\"";
-            // line 51
+            // line 52
             echo twig_escape_filter($this->env, $this->env->getFunction('url_for')->getCallable()("/register"), "html", null, true);
             echo "\" class=\"nav-link\">Register</a>
                     </li>
                 ";
         }
-        // line 54
+        // line 55
         echo "
                 <li class=\"nav-item\">
                     ";
-        // line 56
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "id", [], "any", false, false, false, 56), "html", null, true);
+        // line 57
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "id", [], "any", false, false, false, 57), "html", null, true);
         echo "
                 </li>
 
@@ -202,19 +203,19 @@ class __TwigTemplate_b5cc8d5ea6f7234234146e30cb832f7e extends Template
         ";
     }
 
-    // line 64
+    // line 65
     public function block_main($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 65
+        // line 66
         echo "        ";
     }
 
-    // line 69
+    // line 70
     public function block_footer($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 70
+        // line 71
         echo "            <div class=\"col-lg-9 d-flex align-items-center\">
                 QuizQuest, 2024
             </div>
@@ -242,7 +243,7 @@ class __TwigTemplate_b5cc8d5ea6f7234234146e30cb832f7e extends Template
      */
     public function getDebugInfo()
     {
-        return array (  218 => 70,  214 => 69,  210 => 65,  206 => 64,  197 => 56,  193 => 54,  187 => 51,  180 => 47,  177 => 46,  171 => 43,  167 => 41,  161 => 38,  158 => 37,  156 => 36,  153 => 35,  151 => 34,  145 => 31,  138 => 27,  126 => 19,  122 => 18,  115 => 6,  107 => 10,  103 => 9,  99 => 8,  94 => 6,  91 => 5,  87 => 4,  79 => 77,  75 => 76,  71 => 74,  69 => 69,  64 => 66,  62 => 64,  57 => 61,  55 => 18,  49 => 14,  47 => 4,  42 => 1,);
+        return array (  219 => 71,  215 => 70,  211 => 66,  207 => 65,  198 => 57,  194 => 55,  188 => 52,  181 => 48,  178 => 47,  171 => 43,  164 => 39,  157 => 35,  153 => 33,  147 => 30,  144 => 29,  142 => 28,  139 => 27,  137 => 26,  126 => 19,  122 => 18,  115 => 6,  107 => 10,  103 => 9,  99 => 8,  94 => 6,  91 => 5,  87 => 4,  79 => 78,  75 => 77,  71 => 75,  69 => 70,  64 => 67,  62 => 65,  57 => 62,  55 => 18,  49 => 14,  47 => 4,  42 => 1,);
     }
 
     public function getSourceContext()
@@ -272,14 +273,6 @@ class __TwigTemplate_b5cc8d5ea6f7234234146e30cb832f7e extends Template
 
             <ul class=\"nav nav-pills\">
 
-                <li class=\"nav-item\">
-                    <a href=\"{{ url_for(\"/quizoverview\") }}\" class=\"nav-link\">Quizzes</a>
-                </li
-
-                ><li class=\"nav-item\">
-                    <a href=\"{{ url_for(\"/Leaderboard\") }}\" class=\"nav-link\">Leaderboard</a>
-                </li
-
                 {% if _session.isLoggedin is defined %}
 
                     {% if _session.role == \"Creator\" %}
@@ -291,6 +284,15 @@ class __TwigTemplate_b5cc8d5ea6f7234234146e30cb832f7e extends Template
                     <li class=\"nav-item\">
                         <a class=\"nav-link\" href=\"{{ url_for(\"/logout\") }}\">Logout</a>
                     </li>
+
+                    <li class=\"nav-item\">
+                        <a href=\"{{ url_for(\"/quizoverview\") }}\" class=\"nav-link\">Quizzes</a>
+                    </li>
+
+                    <li class=\"nav-item\">
+                        <a href=\"{{ url_for(\"/Leaderboard\") }}\" class=\"nav-link\">Leaderboard</a>
+                    </li
+
                 {% else %}
                     <li class=\"nav-item\">
                         <a href=\"{{ url_for(\"/login\") }}\" class=\"nav-link\">Login</a>

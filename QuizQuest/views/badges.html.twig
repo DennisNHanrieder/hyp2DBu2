@@ -1,0 +1,16 @@
+{% extends "base.html.twig" %}
+
+{% block title %}My Badges{% endblock %}
+
+{% block main %}
+    <h1>My Badges</h1>
+    {% if badges|length > 0 %}
+        <ul>
+            {% for badge in badges %}
+                <li>{{ badge.Badge_Name }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No badges earned yet.</p>
+    {% endif %}
+{% endblock %}

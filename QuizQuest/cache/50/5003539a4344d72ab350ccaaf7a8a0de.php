@@ -56,7 +56,7 @@ class __TwigTemplate_d2714b9a15184fc46be30151f66d1ebb extends Template
         $macros = $this->macros;
         // line 6
         echo "
-    
+
     <hgroup>
         <h1>QuizQuest</h1>
         <p class=\"lead\">Your favorite quiz game!</p>
@@ -178,6 +178,49 @@ class __TwigTemplate_d2714b9a15184fc46be30151f66d1ebb extends Template
         $context = array_intersect_key($context, $_parent) + $_parent;
         // line 67
         echo "        </div>
+
+
+        <h1>Completed Quizzes</h1>
+        <ul>
+            ";
+        // line 72
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable(($context["quizzes"] ?? null));
+        foreach ($context['_seq'] as $context["_key"] => $context["quiz"]) {
+            // line 73
+            echo "                <li>
+                    <h2>";
+            // line 74
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["quiz"], "Title", [], "any", false, false, false, 74), "html", null, true);
+            echo "</h2>
+                    <p>Available from: ";
+            // line 75
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["quiz"], "StartedAt", [], "any", false, false, false, 75), "html", null, true);
+            echo " to ";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["quiz"], "ClosedAt", [], "any", false, false, false, 75), "html", null, true);
+            echo "</p>
+                    <p>Total Questions: ";
+            // line 76
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["quiz"], "totalQuestions", [], "any", false, false, false, 76), "html", null, true);
+            echo "</p>
+                    <p>Correct Answers: ";
+            // line 77
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["quiz"], "correctAnswers", [], "any", false, false, false, 77), "html", null, true);
+            echo "</p>
+                    <a href=\"";
+            // line 78
+            echo twig_escape_filter($this->env, $this->env->getFunction('url_for')->getCallable()("/quizdetails", ["id" => twig_get_attribute($this->env, $this->source, $context["quiz"], "ID", [], "any", false, false, false, 78)]), "html", null, true);
+            echo "\">Open</a>
+                </li>
+            ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['quiz'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 81
+        echo "        </ul>
+
+
     </div>
 
 ";
@@ -204,7 +247,7 @@ class __TwigTemplate_d2714b9a15184fc46be30151f66d1ebb extends Template
      */
     public function getDebugInfo()
     {
-        return array (  180 => 67,  169 => 61,  162 => 57,  158 => 56,  151 => 52,  147 => 51,  140 => 47,  136 => 46,  133 => 45,  131 => 44,  125 => 41,  121 => 40,  111 => 35,  107 => 34,  101 => 33,  97 => 32,  93 => 31,  87 => 27,  83 => 26,  67 => 13,  58 => 6,  54 => 5,  47 => 3,  36 => 1,);
+        return array (  221 => 81,  212 => 78,  208 => 77,  204 => 76,  198 => 75,  194 => 74,  191 => 73,  187 => 72,  180 => 67,  169 => 61,  162 => 57,  158 => 56,  151 => 52,  147 => 51,  140 => 47,  136 => 46,  133 => 45,  131 => 44,  125 => 41,  121 => 40,  111 => 35,  107 => 34,  101 => 33,  97 => 32,  93 => 31,  87 => 27,  83 => 26,  67 => 13,  58 => 6,  54 => 5,  47 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -215,7 +258,7 @@ class __TwigTemplate_d2714b9a15184fc46be30151f66d1ebb extends Template
 
 {% block main %}
 
-    
+
     <hgroup>
         <h1>QuizQuest</h1>
         <p class=\"lead\">Your favorite quiz game!</p>
@@ -276,6 +319,22 @@ class __TwigTemplate_d2714b9a15184fc46be30151f66d1ebb extends Template
                 </div>
             {% endfor %}
         </div>
+
+
+        <h1>Completed Quizzes</h1>
+        <ul>
+            {% for quiz in quizzes %}
+                <li>
+                    <h2>{{ quiz.Title }}</h2>
+                    <p>Available from: {{ quiz.StartedAt }} to {{ quiz.ClosedAt }}</p>
+                    <p>Total Questions: {{ quiz.totalQuestions }}</p>
+                    <p>Correct Answers: {{ quiz.correctAnswers }}</p>
+                    <a href=\"{{ url_for('/quizdetails', {id: quiz.ID}) }}\">Open</a>
+                </li>
+            {% endfor %}
+        </ul>
+
+
     </div>
 
 {% endblock main %}", "quiz_overview.html.twig", "/var/www/html/teil-2-uebung-9-teameins/QuizQuest/views/quiz_overview.html.twig");

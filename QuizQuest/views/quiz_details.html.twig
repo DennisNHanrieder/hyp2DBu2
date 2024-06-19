@@ -1,0 +1,34 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Quiz Details{% endblock %}
+
+{% block main %}
+    <h1>{{ quiz.Title }}</h1>
+    <p>Available from: {{ quiz.StartedAt }} to {{ quiz.ClosedAt }}</p>
+    <p>Total Questions: {{ totalQuestions }}</p>
+
+    <h2>Questions and Answers</h2>
+    {% for answer in playerAnswers %}
+        <div>
+            <p><strong>Question:</strong> {{ answer.questionTitle }}</p>
+            <ul>
+                {% for ans in answer.answers %}
+                    <li>
+                        {% if ans.selected %}
+                            <span style="text-decoration: underline; color: {% if ans.isCorrect %}green{% else %}red{% endif %};">
+                                {{ ans.title }}
+                            </span>
+                        {% else %}
+                            {% if ans.isCorrect %}
+                                <span style="color: green;">{{ ans.title }}</span>
+                            {% else %}
+                                {{ ans.title }}
+                            {% endif %}
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+            <hr>
+        </div>
+    {% endfor %}
+{% endblock %}

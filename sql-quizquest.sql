@@ -186,6 +186,38 @@ CREATE TABLE IF NOT EXISTS `QuizQuestNew`.`PlayerQuiz` (
                                                                    ON UPDATE NO ACTION)
     ENGINE = InnoDB;
 
+CREATE PROCEDURE CheckAndAwardBadges(IN playerId INT)
+BEGIN
+    DECLARE quizCount INT;
+
+    -- Count the number of fully correctly answered quizzes
+    SELECT COUNT(*) INTO quizCount
+    FROM Quiz q
+             JOIN PlayerAnswer pa ON q.ID = pa.Quiz_ID
+             JOIN Answer a ON pa.Answer_ID = a.ID
+    WHERE pa.Player_ID = playerId
+    GROUP BY q.ID
+    HAVING SUM(a.IsCorrect) = COUNT(a.ID);
+
+    -- Award Bronze Badge
+    IF quizCount >= 3 THEN
+        INSERT IGNORE INTO PlayerBadge (Player_ID, Badge_ID)
+        VALUES (playerId, 'QuizzerStreak Bronze');
+    END IF;
+
+    -- Award Silver Badge
+    IF quizCount >= 5 THEN
+        INSERT IGNORE INTO PlayerBadge (Player_ID, Badge_ID)
+        VALUES (playerId, 'QuizzerStreak Silver');
+    END IF;
+
+    -- Award Gold Badge
+    IF quizCount >= 7 THEN
+        INSERT IGNORE INTO PlayerBadge (Player_ID, Badge_ID)
+        VALUES (playerId, 'QuizzerStreak Gold');
+    END IF;
+END //
+
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;

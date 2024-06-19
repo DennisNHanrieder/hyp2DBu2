@@ -138,7 +138,7 @@ $router->get("/Leaderboard", function () use ($twig) {
 
 $router->post("/Leaderboard", function () use ($twig) {
     // This should fill the leaderboard.
-    require DIR . "/../src/Leaderboard.php";
+    require __DIR__. "/../src/Leaderboard.php";
 });
 
 $router->get("/quizshow", function () use ($twig) {
@@ -148,6 +148,64 @@ $router->get("/quizshow", function () use ($twig) {
 
 $router->post("/quizshow", function () use ($twig) {
     require __DIR__ . "/../src/quiz_open.php";
+});
+
+$router->get("/quizshow", function () use ($twig) {
+    $twig->display("quizopen.html.twig");
+});
+
+
+$router->post("/quizshow", function () use ($twig) {
+    // This should fill the leaderboard.
+    require __DIR__. "/../src/quiz_show.php";
+});
+
+$router->get("/quizshow", function () use ($twig) {
+    $quizId = $_GET['id'];
+    $questionIndex = $_GET['question_index'] ?? 0;
+    $quiz = getQuiz($quizId);
+    $question = getQuestion($quiz['ID'], $questionIndex);
+    $answers = getAnswers($question['ID'], $quiz['ID']);
+    $totalQuestions = getTotalQuestions($quiz['ID']);
+
+    $twig->display("quiz_open.html.twig", [
+        'quiz' => $quiz,
+        'question' => $question,
+        'answers' => $answers,
+        'questionIndex' => $questionIndex,
+        'totalQuestions' => $totalQuestions
+    ]);
+});
+
+$router->post("/quizshow", function () {
+    require __DIR__ . "/../src/play_quiz.php";
+});
+
+
+$router->get("/quizoverview", function () use ($twig) {
+    $playerId = $_SESSION['player_id'];
+    $completedQuizzes = getCompletedQuizzes($playerId);
+    $twig->display("quiz_overview.html.twig", ['quizzes' => $completedQuizzes]);
+});
+
+$router->get("/quizdetails", function () use ($twig) {
+    $playerId = $_SESSION['player_id'];
+    $quizId = $_GET['id'];
+    $quiz = getQuiz($quizId);
+    $playerAnswers = getPlayerAnswers($playerId, $quizId);
+    $totalQuestions = getTotalQuestions($quizId);
+
+    $twig->display("quiz_details.html.twig", [
+        'quiz' => $quiz,
+        'playerAnswers' => $playerAnswers,
+        'totalQuestions' => $totalQuestions
+    ]);
+});
+
+$router->get("/badges", function () use ($twig) {
+    $playerId = $_SESSION['player_id'];
+    $badges = getPlayerBadges($playerId);
+    $twig->display("badges.html.twig", ['badges' => $badges]);
 });
 
 // Run the router to get the party started.

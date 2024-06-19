@@ -1,16 +1,25 @@
 {% extends "base.html.twig" %}
 
-{% block title %}QuizQuest - Quiz{% endblock %}
+{% block title %}Quiz - {{ quiz.Title }}{% endblock %}
 
 {% block main %}
-    <div class="mb-3">
-        <label for="difficulty" class="form-label">Answer</label>
-        <select class="form-select" id="Answer" name="Answer" required>
-            <option value="">Easy</option>
+    <h1>{{ quiz.Title }}</h1>
+    <h2>Question {{ questionIndex + 1 }} of {{ totalQuestions }}</h2>
+    <p>{{ question.Title }}</p>
 
-            //hier sollen so viele Buttons wie es für diese Fragen Antworten gibt, erscheinen
+    <form method="post" action="{{ url_for("/quizshow") }}">
+        <input type="hidden" name="quiz_id" value="{{ quiz.ID }}">
+        <input type="hidden" name="question_index" value="{{ questionIndex }}">
 
-        </select>
-    </div>
-{% endblock main %}
+        {% for answer in answers %}
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="answer" id="option{{ loop.index }}" value="{{ answer.ID }}" required>
+                <label class="form-check-label" for="option{{ loop.index }}">
+                    {{ answer.Title }}
+                </label>
+            </div>
+        {% endfor %}
 
+        <button type="submit" class="btn btn-primary mt-3">Submit Answer</button>
+    </form>
+{% endblock %}

@@ -65,6 +65,22 @@
                 </div>
             {% endfor %}
         </div>
+
+
+        <h1>Completed Quizzes</h1>
+        <ul>
+            {% for quiz in quizzes %}
+                <li>
+                    <h2>{{ quiz.Title }}</h2>
+                    <p>Available from: {{ quiz.StartedAt }} to {{ quiz.ClosedAt }}</p>
+                    <p>Total Questions: {{ quiz.totalQuestions }}</p>
+                    <p>Correct Answers: {{ quiz.correctAnswers }}</p>
+                    <a href="{{ url_for('/quizdetails', {id: quiz.ID}) }}">Open</a>
+                </li>
+            {% endfor %}
+        </ul>
+
+
     </div>
 
 {% endblock main %}
